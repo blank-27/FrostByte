@@ -1,0 +1,24 @@
+
+<h1>Teacher</h1>
+<br>
+<h1>Welcome <%= name %></h1>
+<h1>email : <%= email %></h1>
+<h1>coaching : <%= coaching %></h1>
+<img src="data:image/png;base64,<%=image.toString('base64')%>">
+subject 1 : <a href="/room/<%=link%>" target="_blank">join</a>
+
+<form action="/logout" method="get">
+<button>logout</button>
+</form>
+
+<h1>Add notes</h1>
+<form action="/notes" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" >
+    <button type="submit">submit</button>
+</form>
+
+<h1>Assignment</h1>
+<%assignments.forEach(file=>{%>
+    <h1><%=file.email%>: </h1><a href="data:application/pdf;base64,<%=file.file.toString('base64')%>" download="<%=file.fileName%>"><%=file.fileName%></a><br>
+
+<%})%>

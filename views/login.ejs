@@ -1,0 +1,32 @@
+
+<% if(typeof err != "undefined") {%>
+    <h1><%=err%></h1>
+<%}%>
+<form action="/login/student" method="post" onsubmit="return onsubmitform()" id="loginForm">
+<input type="email" name="email" id="email" placeholder="email">
+<input type="password" name="password" id="password" placeholder="password">
+<p>Login as</p>
+<select name="userType" id="userType">
+    <option value="Teacher">Teacher</option>
+    <option value="Student">Student</option>
+</select>
+<button type="submit">Login</button>
+</form>
+<a href="/forget-password">Forget password?</a>
+<a href="/register">New user?</a>
+
+
+<script type="text/javascript">
+    function onsubmitform()
+    {
+        const val =  document.querySelector('#userType').value
+        if(val==='Teacher')
+        {
+            document.querySelector('#loginForm').action = '/login/teacher'
+        }else
+        {
+            document.querySelector('#loginForm').action = '/login/student'   
+        }
+        return
+    }
+</script>
