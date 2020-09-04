@@ -11,6 +11,18 @@ subject 1 : <a href="/room/<%=link%>" target="_blank">join</a>
 <button>logout</button>
 </form>
 
+<% if(typeof err !='undefined'){%>
+    <h3 color="red"><%=err%></h3>
+    <%}%>
+
+    <% if(typeof success !='undefined'){%>
+        <h3 color="green"><%=success%></h3>
+    <%}%>
+
+    <% if(typeof error !='undefined'){%>
+        <h3 color="red"><%=error%></h3>
+    <%}%>
+
 <h1>Add notes</h1>
 <form action="/notes" method="post" enctype="multipart/form-data">
     <input type="file" name="file" >

@@ -3,7 +3,7 @@ const Student = require('../db/modals/students')
 const Teacher = require('../db/modals/teachers')
 const Coaching = require('../db/modals/coaching')
 const Assignment = require('../db/modals/assignment')
-const{checkAuthenticated,isVerified} = require('./auth')
+const{checkAuthenticated,isVerified} = require('./middlewares/auth')
 const multer = require('multer')
 const upload = new multer({
     limits:{
@@ -20,36 +20,48 @@ const upload = new multer({
 
 router.get('/home/student',checkAuthenticated,isVerified,async (req,res)=>{
 
-    const coaching = await Coaching.findOne({name:req.user.coaching})
-    console.log(req.user.data)
-    res.render('student',{name:req.user.name,email:req.user.email,coaching:req.user.coaching,image:req.user.avatar,coach:coaching[req.user.class],err:res.locals.error_message,succ:res.locals.success_message,links:req.user.data,clas:req.user.class});
+    const data = await Coaching.findOne({name:req.user.coaching})
+    const {name,email,coaching,avatar} = req.user
+    res.render('student',{name,email,coaching,image:avatar,coach:data[req.user.class],err:res.locals.error,success:res.locals.success_message,error:res.locals.error_message,links:req.user.data,clas:req.user.class});
 })
 
 router.post('/addcoaching',checkAuthenticated,async(req,res)=>{
     try {
         let flag = 0;
-        req.user.data.every(data=>{
-            
+        // req.user.data.forEach(async data=>{
+            for(let i=0;i<req.user.data.length;i++){
+                data = req.user.data[i];
             if(data.coaching==req.body.coaching)
             {
-                const subj = data.subjects.find(subject=> subject===req.body.subject)
-                console.log(subj)
-                if(subj)
+                const subj = data.subjects.indexOf(req.body.subject)
+                if(subj!=-1)
                 {
                     flag=1;
                 }
                 else{
                     data.subjects.push(req.body.subject)
-                    flag=1;
-                }
-                return true
+                    const coaching = await Coaching.findOne({name:req.body.coaching})
+                    coaching.students.push(req.user.id)
+                    coaching[req.user.class].forEach(async data=>{
+                        if(data.subject===req.body.subject)
+                        {
+                            data.students.push(req.user.id)
+                        }
+                    })
+
+                        await coaching.save();
+                            flag=1;
+                    }
+                        flag=1;
+                        break;
             }
-        })
+        }
 
 
         if(flag==1)
         {
-            
+            await req.user.save()
+            req.flash('error_message','subject added')
             return res.redirect('/home/student')
         }
         else{
@@ -64,6 +76,8 @@ router.post('/addcoaching',checkAuthenticated,async(req,res)=>{
                 if(data.subject===req.body.subject)
                 {
                     data.students.push(req.user.id)
+                    req.flash("sucess_messae","new subject added")
+                  return res.redirect("/home/student")
                 }
             })
 
@@ -73,7 +87,6 @@ router.post('/addcoaching',checkAuthenticated,async(req,res)=>{
                 subjects:[req.body.subject]
             })
             await req.user.save()
-            console.log(req.user.data)
             req.flash("sucess_messae","new subject added")
            return res.redirect("/home/student")
         }
@@ -110,7 +123,7 @@ router.post('/submit',upload.single('file'),checkAuthenticated,async (req,res)=>
             const present = clas.students.find(id=>{
                 return id==req.user.id
             })
-            console.log(present)
+            
             if(present && clas.subject==req.body.subject)
             {
                 clas.Assignment.push(result.id);

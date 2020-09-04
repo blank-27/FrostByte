@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer')
-const e = require('express')
+
 
 
 const transporter = nodemailer.createTransport({
@@ -16,8 +16,8 @@ const coachingVerify = (email,id)=>{
     const mailOption = {
         to:email,
         from:process.env.USER,
-        subject:'Please verify your email for teacher',
-        html:`<a href="/verify/coaching/${id}">Click here</a>`
+        subject:'Please verify your email for coaching',
+        html:`<a href="http://localhost:3000/verify/coaching/${id}">Click here</a>`
     }
     transporter.sendMail(mailOption,(err,info)=>{
         if(err)
@@ -31,8 +31,8 @@ const studentVerify =  (email,id)=>{
     const mailOption = {
         to:email,
         from:process.env.USER,
-        subject:'Please verify your email for teacher',
-        html:`<a href="/verify/student/${id}">Click here</a>`
+        subject:'Please verify your email for Student',
+        html:`<a href="http://localhost:3000/verify/student/${id}">Click here</a>`
     }
     transporter.sendMail(mailOption,(err,info)=>{
         if(err)
@@ -46,8 +46,8 @@ const teacherVerify =  (email,id)=>{
     const mailOption = {
         to:email,
         from:process.env.USER,
-        subject:'Please verify your email for teacher',
-        html:`<a href="/verify/teacher/${id}">Click here</a>`
+        subject:'Please verify your email for Teacher',
+        html:`<a href="http://localhost:3000/verify/teacher/${id}">Click here</a>`
     }
     transporter.sendMail(mailOption,(err,info)=>{
         if(err)

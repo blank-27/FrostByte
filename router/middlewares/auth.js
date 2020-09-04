@@ -23,10 +23,10 @@ const loginCheck = (req,res,next)=>{
 }
 
 const isVerified = (req,res,next)=>{
-    if(req.user.isVerified)
+    // if(req.user.isVerified)
     next()
-    else
-    res.redirect('/verify')
+    // else
+    // res.redirect('/verify')
 }
 
 

@@ -3,7 +3,7 @@ const Student = require('../db/modals/students')
 const Teacher = require('../db/modals/teachers')
 const Coaching = require('../db/modals/coaching')
 const Assignment = require('../db/modals/assignment')
-const {} = require('./auth')
+const {} = require('./middlewares/auth')
 
 router.get('/verify',(req,res)=>{
     res.render('verify',{err:res.locals.error_messages})

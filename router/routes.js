@@ -9,7 +9,7 @@ const multer = require('multer')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const flash = require('connect-flash')
-const {checkAuthenticated,loginCheck} = require('./auth')
+const {checkAuthenticated,loginCheck} = require('./middlewares/auth')
 const {coachingVerify,teacherVerify,studentVerify}=require('../email/email')
 
 
@@ -41,11 +41,11 @@ require('../passport')(passport)
 
 router.get('/login',loginCheck,(req,res)=>{
     console.log(res.locals.error)
-    res.render('login',{err:res.locals.error})
+    res.render('login',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message})
 })
 
 router.get('/register',(req,res)=>{
-    res.render('register');
+    res.render('register',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message});
 })
 
 
@@ -94,7 +94,7 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
         else{
             user = new Coaching(req.body);
             const result = await user.save();
-            req.flash('success_message',"register successfully....logijn to continue")
+            req.flash('success_message',"register successfully....login to continue")
             coachingVerify(result.email,result.id)
             return res.redirect('/login');
         }
@@ -149,7 +149,7 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
             teacherVerify(result.email,result.id)
             await coaching.save()
             
-            req.flash('success_message',"register successfully....logijn to continue")
+            req.flash('success_message',"register successfully....login to continue")
             return res.redirect('/login');
             
         }
@@ -207,7 +207,7 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
                 }
             })
             await coach.save();
-            req.flash('success_message',"register successfully....logijn to continue")
+            req.flash('success_message',"register successfully....login to continue")
             return res.redirect('/login');
             
         }
