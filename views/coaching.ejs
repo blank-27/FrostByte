@@ -1,1 +1,20 @@
 <h1>Coaching Details</h1>
+<table>
+<tr>
+    <th>name</th>
+    <th>address</th>
+    <th>contact</th>
+    <th>price</th>
+</tr>
+<% if(typeof coaching !='undefined'){%>
+    <%coaching.forEach(coaching=>{%>
+        <tr>
+            <td><%=coaching.name%></td>
+            <td><%=coaching.address%></td>
+            <td><%=coaching.contact%></td>
+            <td>5000/-</td>
+            <td><img height="50" width="50" src="data:image/png;base64,<%=coaching.avatar.toString('base64')%>" alt="avatar"></td>
+        </tr>
+    <%})%>
+<%}%>
+</table>

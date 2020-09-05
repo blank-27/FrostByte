@@ -1,11 +1,12 @@
 const express  = require('express')
 const router = express.Router()
 const Teacher = require('../db/modals/teachers')
+const Coaching = require('../db/modals/coaching')
 
 
-router.get('/coaching',(req,res)=>{
-
-    res.render('coaching')
+router.get('/coaching',async (req,res)=>{
+    const coaching = await Coaching.find()
+    res.render('coaching',{coaching})
 })
 
 router.get('/teacher',async (req,res)=>{

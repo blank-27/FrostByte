@@ -51,6 +51,15 @@ teacherSchema.pre('save',async function(next){
     next();
 })
 
+
+teacherSchema.methods.toJSON = function(){
+    const user = this
+    const userObject = user.toObject()
+    delete userObject.password
+
+    return userObject
+}
+
 const Teacher = mongoose.model('Teacher',teacherSchema)
 
 module.exports = Teacher
