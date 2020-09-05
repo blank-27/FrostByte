@@ -11,13 +11,23 @@
 </head>
 
 <body>
+
+<% if(typeof err != "undefined") {%>
+    <h3 color="red"><%=err%></h3>
+<%}%>
+<% if(typeof error != "undefined") {%>
+  <h3 color="red"><%=error%></h3>
+<%}%>
+<% if(typeof success != "undefined") {%>
+  <h3 color="green"><%=success%></h3>
+<%}%>
     <div class="container btn-purple">
         <div class="row">
             <div class="register">
                 <img class="form__img" src="/img/9 SCENE.svg" alt="">
                 <div class="form">
                     <h1>Fill out the details to register</h1>
-                    <form action="/student" method="post" enctype="multipart/form-data">
+                    <form action="/register/coaching" method="post" enctype="multipart/form-data">
                         <div class="input__field">
                             <h3>Coaching Name</h3>
                             <input type="text" name="name" placeholder="name">
@@ -30,28 +40,28 @@
                             <h3>Contact Number</h3>
                             <input type="tel" name="contacts" placeholder="contact" pattern="[0-9]{10}">
                         </div>
-                        <div class="input__field">
+                        <!-- <div class="input__field">
                             <h3>Subject Name</h3>
                             <input type="text" name="subjects[0][name]" placeholder="subject name">
                         </div>
                         <div class="input__field">
                             <h3>Subject name 1</h3>
                             <input type="text" name="subjects[1][name]" placeholder="subject name">
-                        </div>
+                        </div> -->
                         <div class="input__field">
                             <h3>classes offered</h3>
                             <input type="text" name="subjects[0][class]" placeholder="class name">
                         </div>
 
                         <div class="input__field">
-                            <h3>password</h3>
+                            <h3>admin password</h3>
                             <input type="password" name="password" placeholder="password">
                         </div>
+                        
                         <div class="input__field">
-                            <h3>Confirm Password</h3>
-                            <input type="text" name="address" placeholder="Password ">
+                            <h3>Avatar</h3>
+                            <input type="file" name="avatar">
                         </div>
-
 
                         <button class="btn btn-purple" type="submit">submit</button>
                     </form>

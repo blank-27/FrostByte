@@ -11,6 +11,16 @@
 </head>
 
 <body>
+
+<% if(typeof err != "undefined") {%>
+    <h3 color="red"><%=err%></h3>
+<%}%>
+<% if(typeof error != "undefined") {%>
+  <h3 color="red"><%=error%></h3>
+<%}%>
+<% if(typeof success != "undefined") {%>
+  <h3 color="green"><%=success%></h3>
+<%}%>
     <div class="container btn-blurpurple">
         <div class="row">
             <div class="register">
@@ -30,9 +40,17 @@
                             <h3>Coaching Name</h3>
                             <input type="text" name="coaching" placeholder="coaching">
                         </div>
-                        <div class="input__field">
+                        <!-- <div class="input__field">
                             <h3>Phone Number</h3>
                             <input type="tel" name="contacts" placeholder="contact" pattern="[0-9]{10}">
+                        </div> -->
+                        <div class="input__field">
+                            <h3>Subject</h3>
+                            <select name="subject">
+                                <option value="Maths">Maths</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                            </select>
                         </div>
                         <div class="input__field">
                             <h3>password</h3>
@@ -47,7 +65,6 @@
                             <select name="class" id="class">
                                 <option value="xi">XI</option>
                                 <option value="xi">XII</option>
-                                <option value="Droper">Dropper</option>
                             </select>
                         </div>
                         <div class="input__field">

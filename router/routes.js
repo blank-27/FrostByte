@@ -70,15 +70,15 @@ const upload = new multer({
 
 // starting of get requrest of registration page
 router.get('/register/coaching',(req,res)=>{
-    res.render('register-coaching')
+    res.render('register-coaching',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message})
 })
 
 router.get('/register/teacher',(req,res)=>{
-    res.render('register-teacher')
+    res.render('register-teacher',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message})
 })
 
 router.get('/register/student',(req,res)=>{
-    res.render('register-student')
+    res.render('register-student',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message})
 })
 
 
@@ -91,6 +91,12 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
     if(req.file)
     req.body.avatar = req.file.buffer
     var{email,coaching,name} = req.body
+
+    if(process.env.ADMIN !== req.body.password)
+    {
+        req.flash('error_message','wrong admin password')
+        return res.redirect('/register/coaching')
+    }
 
     if(!email || !name)
     {
@@ -114,8 +120,8 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
     }
     catch(e)
     {
+        res.render('register-coaching',{err:e})
         throw new Error(e)
-        return res.render('register-coaching',{err:e})
     }
 })
 

@@ -188,13 +188,13 @@ input[type="file"] {
 
 .bottom_send .text {
     height: 5vh;
-    width:65%;
+    width:55%;
     border:none;
     background-color: #2196F3;
     border-bottom:3px solid #FAFAFA;
     color:#FAFAFA;
     outline:0;
-    font-size: large;
+    font-size:large;
     padding:5px;
 }
 .bottom_send .text::placeholder{
@@ -202,5 +202,5 @@ input[type="file"] {
 }
 .bottom_send button{
     height: 5vh;
-    width:25%;
+    width:20%;
 }
