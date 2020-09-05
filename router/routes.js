@@ -69,9 +69,24 @@ const upload = new multer({
 
 //,multer end
 
+// starting of get requrest of registration page
+router.get('/register/coaching',(req,res)=>{
+    res.render('register-coaching')
+})
+
+router.get('/register/teacher',(req,res)=>{
+    res.render('register-teacher')
+})
+
+router.get('/register/student',(req,res)=>{
+    res.render('register-student')
+})
 
 
 // post  request for registration
+
+
+
 
 router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
     if(req.file)
@@ -80,7 +95,7 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
 
     if(!email || !name)
     {
-        return res.render('coming-soon',{err:'nam and email field must be filled'}) // page in development
+        return res.render('register-coaching',{err:'nam and email field must be filled'}) // page in development
     }
 
     try{
@@ -89,7 +104,7 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
         console.log(user)
         if(user)
         {
-            return res.render('register-home',{err:'user exit with this username'});
+            return res.render('register-coaching',{err:'user exit with this username'});
         }
         else{
             user = new Coaching(req.body);
@@ -102,7 +117,7 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
     catch(e)
     {
         console.log(e)
-        return res.render('register-home',{err:e})
+        return res.render('register-coaching',{err:e})
     }
 })
 
@@ -157,7 +172,7 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
     catch(e)
     {
         console.log(e)
-        return res.render('register-home',{err:e})
+        return res.render('register-teacher',{err:e})
     }
 })
 
@@ -215,7 +230,7 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
     catch(e)
     {
         console.log(e)
-        return res.render('register-home',{err:e})
+        return res.render('register-student',{err:e})
     }
 })
 

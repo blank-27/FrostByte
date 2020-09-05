@@ -22,7 +22,7 @@ router.get('/home/student',checkAuthenticated,isVerified,async (req,res)=>{
 
     const data = await Coaching.findOne({name:req.user.coaching})
     const {name,email,coaching,avatar} = req.user
-    res.render('student',{name,email,coaching,image:avatar,coach:data[req.user.class],err:res.locals.error,success:res.locals.success_message,error:res.locals.error_message,links:req.user.data,clas:req.user.class});
+    res.render('student-profile',{name,email,coaching,image:avatar,coach:data[req.user.class],err:res.locals.error,success:res.locals.success_message,error:res.locals.error_message,links:req.user.data,clas:req.user.class});
 })
 
 router.post('/addcoaching',checkAuthenticated,async(req,res)=>{
