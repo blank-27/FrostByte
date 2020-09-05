@@ -53,6 +53,7 @@ coachingSchema.methods.toJSON = function()
     const coaching = this
     const coachingObject = coaching.toObject()
     delete coachingObject.students
+    delete coachingObject.teachers
     return coachingObject
 }
 

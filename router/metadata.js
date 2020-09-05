@@ -5,7 +5,7 @@ const Coaching = require('../db/modals/coaching')
 
 
 router.get('/coaching',async (req,res)=>{
-    const coaching = await Coaching.find()
+    const coaching = await Coaching.find({},{teachers:0,students:0,'xi.Assignment':0,'xi.students':0,'xi.notes':0}).populate('xi.Teacher','name')
     res.render('coaching',{coaching})
 })
 
