@@ -1,3 +1,115 @@
-<a href="/login" target="_blank">Login</a>
-<a href="/register">Sign up</a>
-<a href="#">forget password</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="/img/icon.png" type="image/x-icon">
+  <title>Index</title>
+
+</head>
+
+<body>
+  <%- include("partials/header") %>
+  <section class="text-gray-700 body-font">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div
+        class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Motto
+        </h1>
+        <p class="mb-8 leading-relaxed text-gray-500">The main motto of our platfom is to accuring
+          local tution centers and small coaching classes. This
+          help them to scale and grow their reach to more
+          number of students and also help students to take
+          classes at their home at cheaper rates. It provides
+          them large option for choosing best option.
+          We
+          believe that our service will be helpful for both small
+          tution centers as well as students.
+        </p>
+        <div class="flex justify-center">
+          <button
+            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"><a
+              href="/login">Log_in</a></button>
+          <button
+            class="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg"><a
+              href="/register">Sign_up</a></button>
+        </div>
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded" alt="hero" src="/img/landingpageimage.jpg">
+      </div>
+    </div>
+  </section>
+  <section class="text-gray-700 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4 text-center">
+        <div class="p-4 sm:w-1/4 w-1/2">
+          <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">27K</h2>
+          <p class="leading-relaxed">Students</p>
+        </div>
+        <div class="p-4 sm:w-1/4 w-1/2">
+          <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">1.8K</h2>
+          <p class="leading-relaxed">Teachers</p>
+        </div>
+        <div class="p-4 sm:w-1/4 w-1/2">
+          <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">35</h2>
+          <p class="leading-relaxed">Subjects</p>
+        </div>
+        <div class="p-4 sm:w-1/4 w-1/2">
+          <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">144K</h2>
+          <p class="leading-relaxed">Site Visits</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="text-gray-700 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+          <div class="h-full text-center">
+            <img alt="testimonial"
+              class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+              src="https://dummyimage.com/302x302">
+            <p class="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy
+              90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar
+              cronut adaptogen squid fanny pack vaporware.</p>
+            <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
+            <p class="text-gray-500">Senior Product Designer</p>
+          </div>
+        </div>
+        <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+          <div class="h-full text-center">
+            <img alt="testimonial"
+              class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+              src="https://dummyimage.com/300x300">
+            <p class="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy
+              90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar
+              cronut adaptogen squid fanny pack vaporware.</p>
+            <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">ALPER KAMU</h2>
+            <p class="text-gray-500">UI Develeoper</p>
+          </div>
+        </div>
+        <div class="lg:w-1/3 lg:mb-0 p-4">
+          <div class="h-full text-center">
+            <img alt="testimonial"
+              class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+              src="https://dummyimage.com/305x305">
+            <p class="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy
+              90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar
+              cronut adaptogen squid fanny pack vaporware.</p>
+            <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HENRY LETHAM</h2>
+            <p class="text-gray-500">CTO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%- include("partials/footer") %>
+</body>
+
+</html>
