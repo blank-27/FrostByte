@@ -8,8 +8,9 @@ const authRouter = require('./router/routes')
 const teacherRouter = require('./router/teacher')
 const studentRouter = require('./router/student')
 const verfyRouter = require('./router/verify')
+const metaRouter = require('./router/metadata')
+const qnaRouter = require('./router/qna')
 const path = require('path')
-
 
 var Path = path.join(__dirname, '/public')
 app.set('view engine', 'ejs')
@@ -21,6 +22,8 @@ app.use(authRouter)
 app.use(teacherRouter)
 app.use(studentRouter)
 app.use(verfyRouter)
+app.use(metaRouter)
+app.use(qnaRouter)
 
 
 
@@ -28,6 +31,9 @@ const port = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
     res.render('index')
+})
+app.get('*', (req, res) => {
+    res.render('error404')
 })
 
 server.listen(port, () => {

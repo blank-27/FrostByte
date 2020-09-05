@@ -1,0 +1,52 @@
+<h1>Coaching Details</h1>
+
+<table>
+<tr>
+    <th>name</th>
+    <th>address</th>
+    <th>contact</th>
+    <th>price</th>
+</tr>
+<%=coaching[0].xi[0].Teacher.name%>
+<% if(typeof coaching !='undefined'){%>
+    <%coaching.forEach(coach=>{%>
+        <tr>
+            <td><%=coach.name%></td>
+            <td><%=coach.address%></td>
+            <td><%=coach.contact%></td>
+            <td>5000/-</td>
+            <td><img height="50" width="50" src="data:image/png;base64,<%=coach.avatar.toString('base64')%>" alt="avatar"></td>
+            <table>
+                <label>xi</label>
+                <tr>
+                    <th>Subject</th>
+                    <th>Teacher's Name</th>
+                </tr>
+                <% coach['xi'].forEach(data=>{%>
+                    <tr>
+                        <td><%=data.subject%></td>
+                        <%if(typeof data.Teacher !='undefined'){%>
+                        <td><%=data.Teacher.name%></td>
+                        <%}%>
+                        
+                    </tr>
+                <%})%>
+                <label>xii</label>
+                <tr>
+                    <th>Subject</th>
+                    <th>Teacher's Name</th>
+                </tr>
+                <% coach['xii'].forEach(data=>{%>
+                    <tr>
+                        <td><%=data.subject%></td>
+                        <%if(typeof data.Teacher !='undefined'){%>
+                        <td><%=data.Teacher.name%></td>
+                        <%}%>
+                        
+                    </tr>
+                <%})%>
+            </table>
+        </tr>
+    <%})%>
+<%}%>
+</table>

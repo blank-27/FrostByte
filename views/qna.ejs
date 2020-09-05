@@ -1,0 +1,116 @@
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+
+</head>
+
+
+<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Write Your Question</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/qna/public" method="POST" enctype="multipart/form-data" >
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="file" name="image" id="form34" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="form34">Image</label>
+        </div>
+
+        <div class="md-form">
+          <i class="fas fa-pencil prefix grey-text"></i>
+          <textarea type="text" name="body" id="form8" class="md-textarea form-control" rows="4"></textarea>
+          <label data-error="wrong" data-success="right" for="form8">Your message</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="qna-page">
+    <!-- qna/ask -->
+    <div class="flotingbtn">
+        <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Ask your Question</a>
+    </div>
+        
+    <div class="qna-container">
+    <% if(qna.length > 0){%>
+        <% for (var i = 0 ; i < qna.length ; i++) { %>
+        
+        <div class="qna-card">
+    
+            <div class="qna-card-box">
+                <!-- <div class="answered"><a href="/qna/<%=qna[i]._id%>"><i class="fa fa-check-circle" aria-hidden="true"></i>Answers</a></div> -->
+                <div class="user-lable">
+                <img src="" class="user-image" onerror="this.src='/im/user.jpg'">
+                <h4> <%=qna[i].user.name%> </h4>
+                </div>
+                <hr>
+               <a href="/qna/<%=qna[i]._id%>"><p class="qna-card-content"><%= qna[i].body %></p></a>
+                <% if(qna[i].image) { %>
+                <img src="<%= qna[i].image %>" class="qna-card-image">
+                <% } %>
+            </div>
+
+            <div class="qna-answer-section">
+            <form action="/answer/<%=qna[i]._id%>" method="POST">
+                <div class="ans-input-group">
+                    
+                    <input type="text" class="answer-input" name="answer" placeholder="Add an answer..."  autocomplete="off" >
+                    <div class="post-btn">
+                        <button class="ans-post-button"  name="post-answer" type="submit"> Post </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+
+        </div>
+  
+    <% } %>
+    </div> 
+   <% } else{ %>
+    <div class="no-qna-to-display">
+        
+        <p>No question to display</p>
+
+        <img src="/" alt="No-question image...">
+
+    </div>
+   <% } %>
+
+</div>
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>

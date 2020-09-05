@@ -12,7 +12,7 @@ $('document').ready(()=>{
         $('.head_messages').hide()
     
     $('.left').on('click',()=>{
-        $('.left').css('background-color','#C0C0C0')
+        $('.left').css('background-color','#2196F3')
         $('.right').css('background-color','#FAFAFA')
         // $('.head_contacts').css('height','90vh')
         // $('.head_messages').css('height','0')
@@ -23,7 +23,7 @@ $('document').ready(()=>{
     })
     
     $('.right').on('click',()=>{
-        $('.right').css('background-color','#C0C0C0')
+        $('.right').css('background-color','#2196F3')
         $('.left').css('background-color','#FAFAFA')
         // $('.head_contacts').css('height','0')
         // $('.head_messages').css('height','90vh')
@@ -62,6 +62,7 @@ $('document').ready(()=>{
         var Myid;
     
         const Video = document.querySelector('#main_video')
+        Video.muted=true;
         var UserStream;
         var videoOption = {width:640,height:480}
         navigator.mediaDevices.getUserMedia({video:videoOption,audio:{echoCancellation: true}}).then(stream=>{

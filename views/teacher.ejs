@@ -1,0 +1,56 @@
+<h1>Know about your favorite Teachers</h1>
+
+<input type="text" onkeyup="myFunction()">
+
+<table>
+<tr>
+    <th>Name</th>
+    <th>Coaching</th>
+    <th>Price</th>
+    <th>Subject</th>
+    <th>Class</th>
+    <th>image</th>
+</tr>
+<% if(typeof teacher !='undefined'){%>
+    <%teacher.forEach(data=>{%>
+        <tr>
+            <td><%= data.name%></td>
+            <td><%= data.coaching%></td>
+            <td></td>
+            <td><%= data.subject%></td>
+            <!-- <td><%= data.price%></td> -->
+            <td><%= data.class%></td>
+            <td><img height="50" width="50" src="data:image/png;base64,<%=data.avatar.toString('base64')%>" alt=""></td>
+            
+        </tr>
+    <% })}%>
+</table>
+
+<script>
+        function myFunction(){
+            var row = document.querySelectorAll('tr')
+            var value = document.querySelector('input').value.toUpperCase();
+            console.log(value)
+            for(let i = 1;i<row.length;i++)
+            
+            {   
+                
+                
+                var col = row[i].querySelectorAll('td');
+
+                for(let j=0;j<col.length;j++)
+                {
+                    if(col[j].textContent.toUpperCase().indexOf(value)>-1)
+                    {
+                    row[i].style.display=''
+                    break;
+                    }
+                    else
+                    {
+                        row[i].style.display='none'
+                    }
+                    
+                }
+            }
+        }
+</script>

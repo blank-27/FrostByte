@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,6 +141,7 @@
 
                 <h6 class="heading-small text-muted mb-4">Assignment Submission</h6>
 
+
                 <div class="assignment-submission">
                   <h1>submit assignments</h1>
                   <form action="/submit" method="post" enctype="multipart/form-data">
@@ -188,7 +190,6 @@
                           </div>
                       </div> -->
                     </div>
-
                 <hr class="my-4">
               </form>
             </div>
@@ -197,6 +198,16 @@
       </div>
   </div>
 </body>
-
+=======
+<h1>Notes</h1>
+<div id="note">
+    <% coach.forEach(coach=>{ %>
+<h2><%=coach.subject%></h2><br>
+<% coach.notes.forEach(note=>{ %>
+<a href="data:application/pdf;base64,<%=note.file.toString('base64')%>"
+    download="<%=note.fileName%>"><%=note.fileName%></a><br>
+<%})%>
+<%  }) %>
+</div>
 </body>
 </html>
