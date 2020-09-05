@@ -8,6 +8,7 @@ const authRouter = require('./router/routes')
 const teacherRouter = require('./router/teacher')
 const studentRouter = require('./router/student')
 const verfyRouter = require('./router/verify')
+const metaRouter = require('./router/metadata')
 const path = require('path')
 
 
@@ -21,6 +22,7 @@ app.use(authRouter)
 app.use(teacherRouter)
 app.use(studentRouter)
 app.use(verfyRouter)
+app.use(metaRouter)
 
 
 
