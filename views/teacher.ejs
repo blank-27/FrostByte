@@ -1,4 +1,28 @@
 <h1>Teachers details</h1>
-<% if(typeof teacher !=undefinec){%>
+<table>
+<tr>
+    <th>Name</th>
+    <th>Coaching</th>
+    <th>Price</th>
+    <th>Subject</th>
+    <th>Class</th>
+    <th>image</th>
+</tr>
+<% if(typeof teacher !='undefined'){%>
+    <%teacher.forEach(data=>{%>
+        <tr>
+            <td><%= data.name%></td>
+            <td><%= data.coaching%></td>
+            <td></td>
+            <td><%= data.subject%></td>
+            <!-- <td><%= data.price%></td> -->
+            <td><%= data.class%></td>
+            <td><img height="50" width="50" src="data:image/png;base64,<%=data.avatar.toString('base64')%>" alt=""></td>
+            
+        </tr>
+    <% })}%>
+</table>
 
-    <% }%>
+<script>
+    
+</script>

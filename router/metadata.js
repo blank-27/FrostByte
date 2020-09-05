@@ -11,6 +11,7 @@ router.get('/coaching',(req,res)=>{
 router.get('/teacher',async (req,res)=>{
     try {
         const teacher = await Teacher.find({})
+        console.log(teacher)
         res.render('teacher',{teacher})
         
     } catch (error) {
