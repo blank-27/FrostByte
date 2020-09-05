@@ -1,6 +1,3 @@
-
-
-
 <h1>Student</h1><br>
 <h1>Welcome <%= name %></h1>
 <h1>email : <%= email %></h1>
@@ -8,31 +5,32 @@
 <img src="data:image/png;base64,<%=image.toString('base64')%>">
 
 subject 1 : <a href="/room/73b29873-c0bb-48e5-9427-a288646e5ae7" target="_blank">join</a>
+subject 2: <a href="/qna/public">Join public doubt session</a>
 
 <h1>Links</h1>
 <%links.forEach(link=>{%>
-    <h1><%=link.coaching%></h1>
-    <%link.subjects.forEach(data=>{%>
-        <h3><%=data%></h3><a href="/room/<%=data%><%=link.coaching%><%=clas%>">JOIN</a>
-    <%})%>
+<h1><%=link.coaching%></h1>
+<%link.subjects.forEach(data=>{%>
+<h3><%=data%></h3><a href="/room/<%=data%><%=link.coaching%><%=clas%>">JOIN</a>
+<%})%>
 <%})%>
 
 <form action="/logout" method="get">
-<button>logout</button>
+    <button>logout</button>
 </form>
 
 
-    <% if(typeof err !='undefined'){%>
-    <h3 color="red"><%=err%></h3>
-    <%}%>
+<% if(typeof err !='undefined'){%>
+<h3 color="red"><%=err%></h3>
+<%}%>
 
     <% if(typeof success !='undefined'){%>
-        <h3 color="green"><%=success%></h3>
-    <%}%>
+<h3 color="green"><%=success%></h3>
+<%}%>
 
     <% if(typeof error !='undefined'){%>
-        <h3 color="red"><%=error%></h3>
-    <%}%>
+<h3 color="red"><%=error%></h3>
+<%}%>
 
 <h1>Add coaching</h1>
 
@@ -49,11 +47,12 @@ subject 1 : <a href="/room/73b29873-c0bb-48e5-9427-a288646e5ae7" target="_blank"
 <h1>Notes</h1>
 <div id="note">
     <% coach.forEach(coach=>{ %>
-       <h2><%=coach.subject%></h2><br>
-            <% coach.notes.forEach(note=>{ %>
-        <a href="data:application/pdf;base64,<%=note.file.toString('base64')%>" download="<%=note.fileName%>"><%=note.fileName%></a><br>
-                <%})%>
-  <%  }) %>
+<h2><%=coach.subject%></h2><br>
+<% coach.notes.forEach(note=>{ %>
+<a href="data:application/pdf;base64,<%=note.file.toString('base64')%>"
+    download="<%=note.fileName%>"><%=note.fileName%></a><br>
+<%})%>
+<%  }) %>
 </div>
 
 <h1>submit assignments</h1>
