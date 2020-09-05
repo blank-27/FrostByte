@@ -80,7 +80,7 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
 
     if(!email || !name)
     {
-        return res.render('register',{err:'nam and email field must be filled'})
+        return res.render('coming-soon',{err:'nam and email field must be filled'}) // page in development
     }
 
     try{
@@ -89,12 +89,12 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
         console.log(user)
         if(user)
         {
-            return res.render('register',{err:'user exit with this username'});
+            return res.render('register-home',{err:'user exit with this username'});
         }
         else{
             user = new Coaching(req.body);
             const result = await user.save();
-            req.flash('success_message',"register successfully....login to continue")
+            req.flash('success_message',"register-home successfully....login to continue")
             coachingVerify(result.email,result.id)
             return res.redirect('/login');
         }
@@ -102,7 +102,7 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
     catch(e)
     {
         console.log(e)
-        return res.render('register',{err:e})
+        return res.render('register-home',{err:e})
     }
 })
 
@@ -113,15 +113,15 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
     req.body.avatar = req.file.buffer
     if(password2!==password)
     {
-       return res.render('register',{err:'password doesn\'t matched'})
+       return res.render('register-teacher',{err:'password doesn\'t matched'})
     }
     if(!email || !password || !coaching || !name)
     {
-        return res.render('register',{err:'all field must be filled'})
+        return res.render('register-teacher',{err:'all field must be filled'})
     }
     if(password.length<8)
     {
-        return res.render('register',{err:'min password length is 8'})
+        return res.render('register-teacher',{err:'min password length is 8'})
     }
     try{
 
@@ -129,7 +129,7 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
         console.log(user)
         if(user)
         {
-            return res.render('register',{err:'user exit with this username'});
+            return res.render('register-teacher',{err:'user exit with this username'});
         }
         else{
             const subject = req.body.subject;
@@ -149,7 +149,7 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
             teacherVerify(result.email,result.id)
             await coaching.save()
             
-            req.flash('success_message',"register successfully....login to continue")
+            req.flash('success_message',"register-home successfully....login to continue")
             return res.redirect('/login');
             
         }
@@ -157,7 +157,7 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
     catch(e)
     {
         console.log(e)
-        return res.render('register',{err:e})
+        return res.render('register-home',{err:e})
     }
 })
 
@@ -172,15 +172,15 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
 
     if(password2!==password)
     {
-       return res.render('register',{err:'password doesn\'t matched'})
+       return res.render('register-student',{err:'password doesn\'t matched'})
     }
     if(!email || !password || !coaching || !name)
     {
-        return res.render('register',{err:'all field must be filled'})
+        return res.render('register-student',{err:'all field must be filled'})
     }
     if(password.length<8)
     {
-        return res.render('register',{err:'min password length is 8'})
+        return res.render('register-student',{err:'min password length is 8'})
     }
     try{
 
@@ -188,7 +188,7 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
         console.log(user)
         if(user)
         {
-            return res.render('register',{err:'user exit with this username'});
+            return res.render('register-student',{err:'user exit with this username'});
         }
         else{
             user = new Student(req.body);
@@ -207,7 +207,7 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
                 }
             })
             await coach.save();
-            req.flash('success_message',"register successfully....login to continue")
+            req.flash('success_message',"register-home successfully....login to continue")
             return res.redirect('/login');
             
         }
@@ -215,7 +215,7 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
     catch(e)
     {
         console.log(e)
-        return res.render('register',{err:e})
+        return res.render('register-home',{err:e})
     }
 })
 
