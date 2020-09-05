@@ -1,0 +1,65 @@
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+</head>
+
+
+<div class="qna-container">
+    
+    <div class="qna-card">
+        
+        <div class="qna-card-box">
+            <div class="user-lable">
+            <img src=" " class="user-image" onerror="this.src='/im/user.jpg'">
+            <h4><%=qna.user.name%></h4>
+            </div>
+            <hr>
+            <p class="qna-card-content"><%= qna.body %></p>
+            <% if(qna.image) { %>
+            <img src="<%= qna.image %>" class="qna-card-image">
+            <% } %>
+        </div>
+
+        <div class="qna-answer-section">
+            <form action="/answer/<%=qna._id%>" method="POST">
+                <div class="ans-input-group">
+                    
+                    <input type="text" class="answer-input" name="answer" placeholder="Add an answer..."  autocomplete="off" >
+                    <div class="post-btn">
+                        <button class="ans-post-button"  name="post-answer" type="submit"> Post </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="answers">
+            <% if(answers.length > 0){%>
+                <% for (var i = 0 ; i < answers.length ; i++) { %>
+            <div class="answer">        
+            <div class="user-lable">
+                <img src=" "  class="user-image" onerror="this.src='/im/user.jpg'">
+                <h4><%=answers[i].user.name%></h4>
+            </div>
+            <hr>
+            <p class="qna-card-content"><%= answers[i].answer%></p>
+            </div>
+            <% } %>
+            <% } else{ %>
+                <div class="no-qna-to-display">
+                    
+                    <p>Not Answerd at</p>
+        
+                    <img src="/" alt="No-question image...">
+        
+                </div>
+            <% } %>
+        </div>
+
+    </div>
+
+</div>
