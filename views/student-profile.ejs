@@ -1,66 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <link rel="stylesheet" href="/css/profile.css">
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<body>
+  <div class="main-content">
+      <div class="row">
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <!-- <img src="https://demos.creative-tim.com/argon-dashboard/assets/img/theme/team-4.jpg" class="rounded-circle"> -->
+                    <img src="data:image/png;base64,<%=image.toString('base64')%>" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <div class="d-flex justify-content-between">
+                <a href="#" style="visibility: hidden;" class="btn btn-sm btn-info mr-4">Connect</a>
+                <form action="/logout" method="get">
+                  <a href="/logout" class="btn btn-sm btn-default float-right">Logout</a>
+                  </form>
+                
+              </div>
+            </div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                    <div>
+                      <span class="heading">0</span>
+                      <span class="description">Subjects Enrolled</span>
+                    </div>
+                    <div>
+                      <span class="heading">0</span>
+                      <span class="description">Teachers Hired</span>
+                    </div>
+                    <div>
+                      <span class="heading">0</span>
+                      <span class="description">Assignment due</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <h3>
+                  <!-- Jessica Jones -->
+                  Username:<%= name %>
+                </h3>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>
+                </div>
+                <div class="h5 mt-4">
+                  Email : <%= email %>
+
+                </div>
+                <div>
+                  subject 1 : <a href="/room/73b29873-c0bb-48e5-9427-a288646e5ae7" target="_blank">join</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">My DashBoard</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form>
+
+                <!-- class info -->
+                <h6 class="heading-small text-muted mb-4">Class information</h6>
+                <div class="pl-lg-4">
+                    <div class="row">
+                    <div class="class-info note-sub" id="note">
+                        <%links.forEach(link=>{%>
+                        <h1><%=link.coaching%></h1>
+                        <div class="class-sub">
+                            <%link.subjects.forEach(data=>{%>
+                            <h2><%=data%></h2>
+                            <a href="/room/<%=data%><%=link.coaching%><%=clas%>">JOIN</a>
+                            <%})%>
+                            <%})%>
+                        </div>
+                                                
+                      <!-- <div class="note-sub">
+                        <h2>Maths</h2>
+                        <div class="note-list">
+                        
+                        </div>
+                            </div> -->
+                    </div>
+                    
+                    <!-- <div class="note" id="note">
+                      <h1>Fiitjee</h1>
+                      <div class="note-sub">
+                        <h2>Physics</h2>
+                        
+                      </div>
+                      <div class="note-sub">
+                        <h2>Maths</h2>
+                          <div class="note-list">
+                   
+                          </div>
+                      </div>
+                    </div> -->
+                    
+                  </div>
+                  <div class="add-coaching">
+                    <form action="/addcoaching" method="post">
+                        <input type="text" name="coaching" placeholder="coaching">
+                        <select name="subject" id="subject">
+                            <option value="Physics">Physics</option>
+                            <option value="Maths">Maths</option>
+                            <option value="Chemistry">Chemistry</option>
+                        </select>
+                        <button style="border: none; background-color: rgba(82, 95, 127,.6);" type="submit">Add</button>
+                    </form>
+                  </div>
+                </div>
+                <hr class="my-4">
+
+                <!-- Assignment -->
+
+                <h6 class="heading-small text-muted mb-4">Assignment Submission</h6>
+
+                <div class="assignment-submission">
+                  <h1>submit assignments</h1>
+                  <form action="/submit" method="post" enctype="multipart/form-data">
+                      <input type="text" name="coaching" placeholder="coaching">
+                      <input type="subject" name="subject" placeholder="subject">
+                      <input type="file" name="file">
+                      <button type="submit">Submit</button>
+                  </form>
+                                    
+                    <% if(typeof err !='undefined'){%>
+                        <h3 color="red"><%=err%></h3>
+                        <%}%>
+
+                        <% if(typeof success !='undefined'){%>
+                            <h3 color="green"><%=success%></h3>
+                        <%}%>
+
+                        <% if(typeof error !='undefined'){%>
+                            <h3 color="red"><%=error%></h3>
+                        <%}%>
+                </div>
+                
+                <hr class="my-4">
 
 
+                <!-- Notes -->
+                <h6 class="heading-small text-muted mb-4">Notes</h6>
 
-<h1>Student</h1><br>
-<h1>Welcome <%= name %></h1>
-<h1>email : <%= email %></h1>
-<h1>coaching : <%= coaching %></h1>
-<img src="data:image/png;base64,<%=image.toString('base64')%>">
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="note" id="note">
+                      <div class="note-sub">
+                        <% coach.forEach(coach=>{ %>
+                        <h2><%=coach.subject%></h2>
+                        <% coach.notes.forEach(note=>{ %>
+                          <a href="data:application/pdf;base64,<%=note.file.toString('base64')%>" download="<%=note.fileName%>"><%=note.fileName%></a>
+                        <!-- <a href="data:application/pdf;base64,<%=note.file.toString('base64')%>" download="<%=note.fileName%>">lecture 1</a>
+                        <a href="data:application/pdf;base64,<%=note.file.toString('base64')%>" download="<%=note.fileName%>">lecture 1</a> -->
+                        <%})%>
+                        <%  }) %>
+                      </div>
+                      <!-- <div class="note-sub">
+                        <h2>Maths</h2>
+                          <div class="note-list">
+                          
+                          </div>
+                      </div> -->
+                    </div>
 
-subject 1 : <a href="/room/73b29873-c0bb-48e5-9427-a288646e5ae7" target="_blank">join</a>
+                <hr class="my-4">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
 
-<h1>Links</h1>
-<%links.forEach(link=>{%>
-    <h1><%=link.coaching%></h1>
-    <%link.subjects.forEach(data=>{%>
-        <h3><%=data%></h3><a href="/room/<%=data%><%=link.coaching%><%=clas%>">JOIN</a>
-    <%})%>
-<%})%>
-
-<form action="/logout" method="get">
-<button>logout</button>
-</form>
-
-
-    <% if(typeof err !='undefined'){%>
-    <h3 color="red"><%=err%></h3>
-    <%}%>
-
-    <% if(typeof success !='undefined'){%>
-        <h3 color="green"><%=success%></h3>
-    <%}%>
-
-    <% if(typeof error !='undefined'){%>
-        <h3 color="red"><%=error%></h3>
-    <%}%>
-
-<h1>Add coaching</h1>
-
-<form action="/addcoaching" method="post">
-    <input type="text" name="coaching" placeholder="coaching">
-    <select name="subject" id="subject">
-        <option value="Physics">Physics</option>
-        <option value="Maths">Maths</option>
-        <option value="Chemistry">Chemistry</option>
-    </select>
-    <button type="submit">submit</button>
-</form>
-
-<h1>Notes</h1>
-<div id="note">
-    <% coach.forEach(coach=>{ %>
-       <h2><%=coach.subject%></h2><br>
-            <% coach.notes.forEach(note=>{ %>
-        <a href="data:application/pdf;base64,<%=note.file.toString('base64')%>" download="<%=note.fileName%>"><%=note.fileName%></a><br>
-                <%})%>
-  <%  }) %>
-</div>
-
-<h1>submit assignments</h1>
-
-<form action="/submit" method="post" enctype="multipart/form-data">
-    <input type="text" name="coaching" placeholder="coaching">
-    <input type="subject" name="subject" placeholder="subject">
-    <input type="file" name="file">
-    <button type="submit">Submit</button>
-</form>
+</body>
+</html>
