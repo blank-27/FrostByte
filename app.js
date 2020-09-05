@@ -9,8 +9,8 @@ const teacherRouter = require('./router/teacher')
 const studentRouter = require('./router/student')
 const verfyRouter = require('./router/verify')
 const metaRouter = require('./router/metadata')
+const qnaRouter = require('./router/qna')
 const path = require('path')
-
 
 var Path = path.join(__dirname, '/public')
 app.set('view engine', 'ejs')
@@ -23,6 +23,7 @@ app.use(teacherRouter)
 app.use(studentRouter)
 app.use(verfyRouter)
 app.use(metaRouter)
+app.use(qnaRouter)
 
 
 
