@@ -45,7 +45,7 @@ router.get('/login',loginCheck,(req,res)=>{
 })
 
 router.get('/register',(req,res)=>{
-    res.render('register',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message});
+    res.render('register-home',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message});
 })
 
 
