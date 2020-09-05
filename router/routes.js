@@ -40,7 +40,6 @@ require('../passport')(passport)
 
 
 router.get('/login',loginCheck,(req,res)=>{
-    console.log(res.locals.error)
     res.render('login',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message})
 })
 
@@ -101,7 +100,6 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
     try{
 
         var user = await Coaching.findOne({email});
-        console.log(user)
         if(user)
         {
             return res.render('register-coaching',{err:'user exit with this username'});
@@ -116,7 +114,7 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
     }
     catch(e)
     {
-        console.log(e)
+        throw new Error(e)
         return res.render('register-coaching',{err:e})
     }
 })
@@ -124,7 +122,6 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
 router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
     var {name,email,password,password2,coaching} = req.body;
     if(req.file)
-    console.log(req.body)
     req.body.avatar = req.file.buffer
     if(password2!==password)
     {
@@ -141,7 +138,6 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
     try{
 
         var user = await Teacher.findOne({email});
-        console.log(user)
         if(user)
         {
             return res.render('register-teacher',{err:'user exit with this username'});
@@ -153,7 +149,6 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
             
             user = new Teacher(req.body);
             const result = await user.save();
-            console.log(coaching[req.body.class])
             coaching.teachers.push(user.id);
             coaching[req.body.class].forEach(object =>{
                 if(object.subject===subject)
@@ -171,8 +166,9 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
     }
     catch(e)
     {
-        console.log(e)
-        return res.render('register-teacher',{err:e})
+        
+        res.render('register-teacher',{err:e})
+        throw new Error(e)
     }
 })
 
@@ -181,7 +177,6 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
 router.post('/register/student',upload.single('avatar'),async (req,res)=>{
     var {name,email,password,password2,coaching} = req.body;
     const clas = req.body.class;
-    console.log(req.body)
     if(req.file)
     req.body.avatar=req.file.buffer;
 
@@ -200,7 +195,6 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
     try{
 
         var user = await Student.findOne({email});
-        console.log(user)
         if(user)
         {
             return res.render('register-student',{err:'user exit with this username'});
@@ -229,8 +223,8 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
     }
     catch(e)
     {
-        console.log(e)
-        return res.render('register-student',{err:e})
+        res.render('register-student',{err:e})
+        throw new Error(e)
     }
 })
 

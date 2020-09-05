@@ -9,7 +9,8 @@ body::-webkit-scrollbar {
   }
 .nav{
     height: 8vh;
-    background-color: #2196F3;
+    /* background-color: #2196F3; */
+    background-color:#0584ec
 }
 .video{
     height:80vh;
@@ -39,15 +40,17 @@ body::-webkit-scrollbar {
     letter-spacing: 0.8px;
 }
 #side{
+    display: none;
     float:right;
     height: 8vh;
     width:50px;
     outline:none;
     border:none;
     background-color: rgb(206, 194, 194);
+    border-radius:25px 0 0 25px
 }
 #side img{
-    height: 40px;
+    height: 20px;
 }
 .bottom img{
     box-sizing: border-box;
@@ -86,7 +89,8 @@ body::-webkit-scrollbar {
     
 }
 .left{
-    background-color:#C0C0C0;
+    /* background-color:#C0C0C0; */
+    background-color:#2196F3
 }
 
 
@@ -172,11 +176,31 @@ input[type="file"] {
 
 .bottom_send{
     height:10vh;
-    width: 100%;
-    background-color: red;
+    width: 30%;
+    background-color:#2196F3;
     position: absolute;
     top:0;
     margin-top:90vh;
-    display: inline-block;
-    justify-content: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bottom_send .text {
+    height: 5vh;
+    width:65%;
+    border:none;
+    background-color: #2196F3;
+    border-bottom:3px solid #FAFAFA;
+    color:#FAFAFA;
+    outline:0;
+    font-size: large;
+    padding:5px;
+}
+.bottom_send .text::placeholder{
+    color:#FAFAFA;
+}
+.bottom_send button{
+    height: 5vh;
+    width:25%;
 }
