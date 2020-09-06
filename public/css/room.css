@@ -6,6 +6,9 @@
 }
 body::-webkit-scrollbar {
     display: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* margin: 20px; */
   }
 .nav{
     height: 8vh;
@@ -74,10 +77,13 @@ body::-webkit-scrollbar {
     justify-content: center;
     align-content: center;
     box-shadow: 3px 2px 5px grey;
+    border-radius: 5px;
 }
 .left,.right{
+    border-radius: 5px;
     box-sizing: border-box;
-    height: 10vh;
+    height: 8vh;
+    margin: 2px;
     width: 50%;
     display: flex;
     align-items: center;
@@ -175,6 +181,8 @@ input[type="file"] {
 }
 
 .bottom_send{
+    border-radius: 5px;
+    margin: 10px;
     height:10vh;
     width: 30%;
     background-color:#2196F3;
@@ -203,4 +211,10 @@ input[type="file"] {
 .bottom_send button{
     height: 5vh;
     width:25%;
+}
+#msg {
+    background-color: #dee1ec;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem 2rem;
+    outline: none;
 }
