@@ -17,7 +17,7 @@ const coachingVerify = (email,id)=>{
         to:email,
         from:process.env.USER,
         subject:'Please verify your email for coaching',
-        html:`<a href="http://localhost:3000/verify/coaching/${id}">Click here</a>`
+        html:`<a href="https://target-frostbyte.herokuapp.com/verify/coaching/${id}">Click here</a>`
     }
     transporter.sendMail(mailOption,(err,info)=>{
         if(err)
@@ -32,7 +32,7 @@ const studentVerify =  (email,id)=>{
         to:email,
         from:process.env.USER,
         subject:'Please verify your email for Student',
-        html:`<a href="http://localhost:3000/verify/student/${id}">Click here</a>`
+        html:`<a href="https://target-frostbyte.herokuapp.com/verify/student/${id}">Click here</a>`
     }
     transporter.sendMail(mailOption,(err,info)=>{
         if(err)
@@ -47,7 +47,7 @@ const teacherVerify =  (email,id)=>{
         to:email,
         from:process.env.USER,
         subject:'Please verify your email for Teacher',
-        html:`<a href="http://localhost:3000/verify/teacher/${id}">Click here</a>`
+        html:`<a href="https://target-frostbyte.herokuapp.com/verify/teacher/${id}">Click here</a>`
     }
     transporter.sendMail(mailOption,(err,info)=>{
         if(err)
