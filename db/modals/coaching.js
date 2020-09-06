@@ -12,6 +12,7 @@ const coachingSchema = new schema({
         type:Boolean,
         default:false
     },
+    fees:Number,
     email:String,
     avatar:Buffer,
     address:String,

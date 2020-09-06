@@ -11,16 +11,6 @@
 </head>
 
 <body>
-
-<% if(typeof err != "undefined") {%>
-    <h3 color="red"><%=err%></h3>
-<%}%>
-<% if(typeof error != "undefined") {%>
-  <h3 color="red"><%=error%></h3>
-<%}%>
-<% if(typeof success != "undefined") {%>
-  <h3 color="green"><%=success%></h3>
-<%}%>
     <div class="container btn-purple">
         <div class="row">
             <div class="register">
@@ -28,17 +18,33 @@
                 <div class="form">
                     <h1>Fill out the details to register</h1>
                     <form action="/register/coaching" method="post" enctype="multipart/form-data">
+
+                        <!-- error handling -->
+                        <% if(typeof err != "undefined") {%>
+                            <h3 style="color:red"><%=err%></h3>
+                        <%}%>
+                        <% if(typeof error != "undefined") {%>
+                          <h3 style="color:red"><%=error%></h3>
+                        <%}%>
+                        <% if(typeof success != "undefined") {%>
+                          <h3 style="color:green"><%=success%></h3>
+                        <%}%>
+
                         <div class="input__field">
                             <h3>Coaching Name</h3>
-                            <input type="text" name="name" placeholder="name">
+                            <input type="text" name="name" placeholder="name" required>
                         </div>
                         <div class="input__field">
                             <h3>Email</h3>
-                            <input type="email" name="email" placeholder="email">
+                            <input type="email" name="email" placeholder="email" required>
                         </div>
                         <div class="input__field">
-                            <h3>Contact Number</h3>
-                            <input type="tel" name="contacts" placeholder="contact" pattern="[0-9]{10}">
+                            <h3>Adderess</h3>
+                            <input type="text" name="address" placeholder="address">
+                        </div>
+                        <div class="input__field">
+                            <h3>Fees/sub</h3>
+                            <input type="number" name="fees" placeholder="fees">
                         </div>
                         <!-- <div class="input__field">
                             <h3>Subject Name</h3>
@@ -48,14 +54,14 @@
                             <h3>Subject name 1</h3>
                             <input type="text" name="subjects[1][name]" placeholder="subject name">
                         </div> -->
-                        <div class="input__field">
+                        <!-- <div class="input__field">
                             <h3>classes offered</h3>
                             <input type="text" name="subjects[0][class]" placeholder="class name">
-                        </div>
+                        </div> -->
 
                         <div class="input__field">
                             <h3>admin password</h3>
-                            <input type="password" name="password" placeholder="password">
+                            <input type="password" name="password" placeholder="password" required>
                         </div>
                         
                         <div class="input__field">

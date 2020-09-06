@@ -1,13 +1,4 @@
 
-<% if(typeof err != "undefined") {%>
-    <h3 color="red"><%=err%></h3>
-<%}%>
-<% if(typeof error != "undefined") {%>
-  <h3 color="red"><%=error%></h3>
-<%}%>
-<% if(typeof success != "undefined") {%>
-  <h3 color="green"><%=success%></h3>
-<%}%>
 
 <!-- <form action="/login/student" method="post" onsubmit="return onsubmitform()" id="loginForm">
 <input type="email" name="email" id="email" placeholder="email">
@@ -44,6 +35,19 @@
       <div class="forms-container">
         <div class="signin-signup">
           <form action="/login/student" method="POST" onsubmit="return onsubmitform()" id="loginForm" class="sign-in-form">
+
+            <% if(typeof err != "undefined") {%>
+              <h3 style="color:red"><%=err%></h3>
+          <%}%>
+          <% if(typeof error != "undefined") {%>
+            <h3 style="color:red"><%=error%></h3>
+          <%}%>
+          <% if(typeof success != "undefined") {%>
+            <h3 style="color:green"><%=success%></h3>
+          <%}%>   
+            
+          
+
             <h2 class="title">Log in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>

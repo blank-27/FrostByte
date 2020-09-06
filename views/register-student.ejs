@@ -12,15 +12,7 @@
 
 <body>
 
-<% if(typeof err != "undefined") {%>
-    <h3 color="red"><%=err%></h3>
-<%}%>
-<% if(typeof error != "undefined") {%>
-  <h3 color="red"><%=error%></h3>
-<%}%>
-<% if(typeof success != "undefined") {%>
-  <h3 color="green"><%=success%></h3>
-<%}%>
+
     <div class="container btn-blurpurple">
         <div class="row">
             <div class="register">
@@ -28,6 +20,19 @@
                 <div class="form">
                     <h1>Fill out the details to register</h1>
                     <form action="/register/student" method="post" enctype="multipart/form-data">
+
+                        <% if(typeof err != "undefined") {%>
+                            <h3 style="color:red"><%=err%></h3>
+                        <%}%>
+                        <% if(typeof error != "undefined") {%>
+                          <h3 style="color:red"><%=error%></h3>
+                        <%}%>
+                        <% if(typeof success != "undefined") {%>
+                          <h3 style="color:green"><%=success%></h3>
+                        <%}%>
+
+
+
                         <div class="input__field">
                             <h3>Name</h3>
                             <input type="text" name="name" placeholder="name">

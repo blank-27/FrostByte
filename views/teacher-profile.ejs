@@ -114,6 +114,17 @@ subject 1 : <a href="/room/<%=link%>" target="_blank">join</a>
               <div class="row align-items-center">
                 <div class="col-8">
                   <h3 class="mb-0">My DashBoard</h3>
+
+                  <% if(typeof err != "undefined") {%>
+                    <h3 style="color:red"><%=err%></h3>
+                <%}%>
+                <% if(typeof error != "undefined") {%>
+                  <h3 style="color:red"><%=error%></h3>
+                <%}%>
+                <% if(typeof success != "undefined") {%>
+                  <h3 style="color:green"><%=success%></h3>
+                <%}%>
+
                 </div>
               </div>
             </div>
@@ -122,17 +133,7 @@ subject 1 : <a href="/room/<%=link%>" target="_blank">join</a>
 
                     
                   </div>
-                  <div class="add-coaching">
-                    <form action="/addcoaching" method="post">
-                        <input type="text" name="coaching" placeholder="coaching">
-                        <select name="subject" id="subject">
-                            <option value="Physics">Physics</option>
-                            <option value="Maths">Maths</option>
-                            <option value="Chemistry">Chemistry</option>
-                        </select>
-                        <button style="border: none; background-color: rgba(82, 95, 127,.6);" type="submit">Add</button>
-                    </form>
-                  </div>
+                 
                 </div>
                 <hr class="my-4">
 
@@ -147,17 +148,7 @@ subject 1 : <a href="/room/<%=link%>" target="_blank">join</a>
                     <button type="submit">submit</button>
               </form>
                                               
-                    <% if(typeof err !='undefined'){%>
-                        <h3 color="red"><%=err%></h3>
-                        <%}%>
-
-                        <% if(typeof success !='undefined'){%>
-                            <h3 color="green"><%=success%></h3>
-                        <%}%>
-
-                        <% if(typeof error !='undefined'){%>
-                            <h3 color="red"><%=error%></h3>
-                        <%}%>
+           
                 </div>
                 
                 <hr class="my-4">

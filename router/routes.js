@@ -113,9 +113,9 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
         else{
             user = new Coaching(req.body);
             const result = await user.save();
-            req.flash('success_message',"register-home successfully....login to continue")
+            req.flash('success_message',"coaching registered successfully....")
             coachingVerify(result.email,result.id)
-            return res.redirect('/login');
+            return res.redirect('/register');
         }
     }
     catch(e)
@@ -165,7 +165,7 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
             teacherVerify(result.email,result.id)
             await coaching.save()
             
-            req.flash('success_message',"register-home successfully....login to continue")
+            req.flash('success_message',"registered successfully....login to continue")
             return res.redirect('/login');
             
         }
@@ -222,7 +222,7 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
                 }
             })
             await coach.save();
-            req.flash('success_message',"register-home successfully....login to continue")
+            req.flash('success_message',"registered successfully....login to continue")
             return res.redirect('/login');
             
         }
