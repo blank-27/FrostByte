@@ -32,5 +32,20 @@ $ npm run dev
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :
+5. Submit a pull request : 
 
+```
+
+## Images 
+## Home Page
+![screenshot](https://raw.githubusercontent.com/blank-27/FrostByte/master/public/im/1.png)
+## Login Page
+![screenshot](https://raw.githubusercontent.com/blank-27/FrostByte/master/public/im/2.png)
+## Register Page
+![screenshot](https://raw.githubusercontent.com/blank-27/FrostByte/master/public/im/3.png)
+## Online Class
+![screenshot](https://media.discordapp.net/attachments/747033789586473033/752031247651307571/room.png?width=757&height=426)
+## Doubt Section
+![screenshot](https://i.imgur.com/iCEF9G7.png)
+## Screen Sharing
+![screenshot](https://media.discordapp.net/attachments/747033789586473033/752034237116448829/unknown.png?width=802&height=426)
