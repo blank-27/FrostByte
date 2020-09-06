@@ -24,7 +24,12 @@ $ cd FrostByte
 
 # Install dependencies
 $ npm install
+```
 
+## Make Sure to include the contents of following image to .env file in root project folder
+![screenshot](https://media.discordapp.net/attachments/747033789586473033/752025393464344706/unknown.png)
+
+```bash
 # Run the app
 $ npm run dev
 ## Contributing
