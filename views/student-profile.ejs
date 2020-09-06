@@ -125,7 +125,11 @@
                   <h1>submit assignments</h1>
                   <form action="/submit" method="post" enctype="multipart/form-data">
                       <input type="text" name="coaching" placeholder="coaching">
-                      <input type="subject" name="subject" placeholder="subject">
+                      <select name="subject" id="subject">
+                        <option value="Physics">Physics</option>
+                        <option value="Maths">Maths</option>
+                        <option value="Chemistry">Chemistry</option>
+                    </select>
                       <input type="file" name="file">
                       <button type="submit">Submit</button>
                   </form>
