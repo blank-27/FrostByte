@@ -22,3 +22,15 @@ $ npm run dev
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :
 
+#images
+
+<img src="public/im/1.png" height = "480" width="970">
+<img src="public/im/2.png" height = "480" width="970">
+<img src="public/im/3.png" height = "480" width="970">
+<img src="public/im/4.png" height = "480" width="970">
+<img src="public/im/5.png" height = "480" width="970">
+<img src="public/im/6.png" height = "480" width="970">
+<img src="public/im/7.png" height = "480" width="970">
+<img src="public/im/8.png" height = "480" width="970">
+<img src="public/im/9.png" height = "480" width="970">
+<img src="public/im/10.png" height = "480" width="970">
