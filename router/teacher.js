@@ -21,7 +21,7 @@ router.get('/home/teacher',checkAuthenticated,isVerified,async(req,res)=>{
     const assignments = await Assignment.find({coaching:req.user.coaching,subject:req.user.subject})
     const coaching = await Coaching.findOne({name:req.user.coaching}).populate(`${req.user.class}`)
     const link = `${req.user.subject}${req.user.coaching}${req.user.class}`
-    res.render('teacher-profile',{name:req.user.name,email:req.user.email,coaching:req.user.coaching,image:req.user.avatar,assignments,link,err:res.locals.error,error:res.locals.error_message,success:res.locals.success_messagge});
+    res.render('teacher-profile',{name:req.user.name,email:req.user.email,coaching:req.user.coaching,image:req.user.avatar,assignments,link,err:res.locals.error,error:res.locals.error_message,success:res.locals.success_messagge,subject:req.user.subject});
 })
 
 router.post('/notes',checkAuthenticated,upload.single('file'),async (req,res,next)=>{
