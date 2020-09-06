@@ -24,13 +24,40 @@ $ npm run dev
 
 #images
 
-<img src="public/im/1.png" height = "480" width="970">
-<img src="public/im/2.png" height = "480" width="970">
-<img src="public/im/3.png" height = "480" width="970">
-<img src="public/im/4.png" height = "480" width="970">
-<img src="public/im/5.png" height = "480" width="970">
-<img src="public/im/6.png" height = "480" width="970">
-<img src="public/im/7.png" height = "480" width="970">
-<img src="public/im/8.png" height = "480" width="970">
-<img src="public/im/9.png" height = "480" width="970">
-<img src="public/im/10.png" height = "480" width="970">
+<table>
+  <tr>
+      <td> <h1>screenshot in pc </h1></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/1.png" height = "480" width="970"></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/2.png" height = "480" width="970"></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/3.png" height = "480" width="970"></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/4.png" height = "480" width="970"></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/5.png" height = "480" width="970"></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/6.png" height = "480" width="970"></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/7.png" height = "480" width="970"></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/8.png" height = "480" width="970"></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/8.png" height = "480" width="970"></td>
+  </tr>
+   <tr>
+      <td><img src="public/im/10.png" height = "480" width="970"></td>
+  </tr>
+ 
+</table>
+
