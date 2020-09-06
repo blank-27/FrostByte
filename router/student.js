@@ -26,6 +26,8 @@ router.get('/home/student',checkAuthenticated,isVerified,async (req,res)=>{
 })
 
 router.post('/addcoaching',checkAuthenticated,async(req,res)=>{
+    console.log(req.body)
+    console.log(1)
     try {
         let flag = 0;
         // req.user.data.forEach(async data=>{
@@ -99,6 +101,7 @@ router.post('/addcoaching',checkAuthenticated,async(req,res)=>{
 
 
 router.post('/submit',upload.single('file'),checkAuthenticated,async (req,res)=>{
+    console.log(req.body)
     if(!req.file)
     {
         req.flash('error_message','no file is uploaded')

@@ -1,6 +1,4 @@
-<% if(typeof err!='undefined') {%>
-<h1><%= err %></h1>
-<% } %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +13,15 @@
 </head>
 
 <body>
+    <% if(typeof err != "undefined") {%>
+        <h3 style="color:red"><%=err%></h3>
+    <%}%>
+    <% if(typeof error != "undefined") {%>
+      <h3 style="color:red"><%=error%></h3>
+    <%}%>
+    <% if(typeof success != "undefined") {%>
+      <h3 style="color:green"><%=success%></h3>
+    <%}%>
     <div class="container register">
         <div class="row">
             <div class="column-1">

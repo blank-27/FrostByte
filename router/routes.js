@@ -70,15 +70,15 @@ const upload = new multer({
 
 // starting of get requrest of registration page
 router.get('/register/coaching',(req,res)=>{
-    res.render('register-coaching')
+    res.render('register-coaching',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message})
 })
 
 router.get('/register/teacher',(req,res)=>{
-    res.render('register-teacher')
+    res.render('register-teacher',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message})
 })
 
 router.get('/register/student',(req,res)=>{
-    res.render('register-student')
+    res.render('register-student',{err:res.locals.error,error:res.locals.error_message,success:res.locals.success_message})
 })
 
 
@@ -91,6 +91,12 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
     if(req.file)
     req.body.avatar = req.file.buffer
     var{email,coaching,name} = req.body
+
+    if(process.env.ADMIN !== req.body.password)
+    {
+        req.flash('error_message','wrong admin password')
+        return res.redirect('/register/coaching')
+    }
 
     if(!email || !name)
     {
@@ -107,15 +113,15 @@ router.post('/register/coaching',upload.single('avatar'),async (req,res,next)=>{
         else{
             user = new Coaching(req.body);
             const result = await user.save();
-            req.flash('success_message',"register-home successfully....login to continue")
+            req.flash('success_message',"coaching registered successfully....")
             coachingVerify(result.email,result.id)
-            return res.redirect('/login');
+            return res.redirect('/register');
         }
     }
     catch(e)
     {
+        res.render('register-coaching',{err:e})
         throw new Error(e)
-        return res.render('register-coaching',{err:e})
     }
 })
 
@@ -159,7 +165,7 @@ router.post('/register/teacher',upload.single('avatar'),async (req,res)=>{
             teacherVerify(result.email,result.id)
             await coaching.save()
             
-            req.flash('success_message',"register-home successfully....login to continue")
+            req.flash('success_message',"registered successfully....login to continue")
             return res.redirect('/login');
             
         }
@@ -216,7 +222,7 @@ router.post('/register/student',upload.single('avatar'),async (req,res)=>{
                 }
             })
             await coach.save();
-            req.flash('success_message',"register-home successfully....login to continue")
+            req.flash('success_message',"registered successfully....login to continue")
             return res.redirect('/login');
             
         }
