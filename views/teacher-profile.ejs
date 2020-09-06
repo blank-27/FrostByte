@@ -118,7 +118,6 @@ subject 1 : <a href="/room/<%=link%>" target="_blank">join</a>
               </div>
             </div>
             <div class="card-body">
-              <form>
 
 
                     
@@ -142,14 +141,12 @@ subject 1 : <a href="/room/<%=link%>" target="_blank">join</a>
                 <h6 class="heading-small text-muted mb-4">Note Submission</h6>
 
                 <div class="assignment-submission">
-                  <h1>submit assignments</h1>
-                  <form action="/submit" method="post" enctype="multipart/form-data">
-                      <input type="text" name="coaching" placeholder="coaching">
-                      <input type="subject" name="subject" placeholder="subject">
-                      <input type="file" name="file">
-                      <button type="submit">Submit</button>
-                  </form>
-                                    
+                  <h1>Add notes</h1>
+                <form action="/notes" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" >
+                    <button type="submit">submit</button>
+              </form>
+                                              
                     <% if(typeof err !='undefined'){%>
                         <h3 color="red"><%=err%></h3>
                         <%}%>
@@ -168,18 +165,14 @@ subject 1 : <a href="/room/<%=link%>" target="_blank">join</a>
 
                 <!-- Notes -->
                 <h6 class="heading-small text-muted mb-4">Assignment submissions</h6>
-
+                <%assignments.forEach(file=>{%>
+                  <h1><%=file.email%>: </h1><a href="data:application/pdf;base64,<%=file.file.toString('base64')%>" download="<%=file.fileName%>"><%=file.fileName%></a><br>
+                  <%})%>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="note" id="note">
                       <div class="note-sub">
-                        <% coach.forEach(coach=>{ %>
-                        <h2><%=coach.subject%></h2>
-                        <% coach.notes.forEach(note=>{ %>
-                          <a href="data:application/pdf;base64,<%=note.file.toString('base64')%>" download="<%=note.fileName%>"><%=note.fileName%></a>
-                        
-                        <%})%>
-                        <%  }) %>
+                      
                       </div>
                       <!-- <div class="note-sub">
                         <h2>Maths</h2>

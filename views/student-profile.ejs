@@ -82,7 +82,6 @@
               </div>
             </div>
             <div class="card-body">
-              <form>
 
                 <!-- class info -->
                 <h6 class="heading-small text-muted mb-4">Class information</h6>
@@ -123,14 +122,14 @@
                     
                   </div>
                   <div class="add-coaching">
-                    <form action="/addcoaching" method="post">
+                    <form action="/addcoaching" method="POST">
                         <input type="text" name="coaching" placeholder="coaching">
                         <select name="subject" id="subject">
                             <option value="Physics">Physics</option>
                             <option value="Maths">Maths</option>
                             <option value="Chemistry">Chemistry</option>
                         </select>
-                        <button style="border: none; background-color: rgba(82, 95, 127,.6);" type="submit">Add</button>
+                        <button  type="submit">Add</button>
                     </form>
                   </div>
                 </div>
