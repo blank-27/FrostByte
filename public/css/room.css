@@ -218,3 +218,20 @@ input[type="file"] {
     outline: none;
     /* width:20%; */
 }
+
+.msg_temp_ima{
+    height: 20vh;
+    width: 30%;
+}
+.msg_temp_img img{
+    height: 100%;
+    width: 100%;
+}
+
+.message_temp,.msg_temp_file{
+    margin: 2px 0 2px 0;
+    padding:2px 0 2px 0;
+    height:8vh;
+    width: 100%;
+    background-color: #6da2cf;
+}

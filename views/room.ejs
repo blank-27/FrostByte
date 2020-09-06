@@ -98,17 +98,19 @@
     </script>
 
     <script id="msg_temp_img" type="text/html">
-        <span class="message_name">{{username}}</span> 
-        <span class="message_meta"> {{createdAt}} </span>
-        <img src="{{src}}" alt="img" download>
-
+          <div class="msg_temp_img">
+            <span class="message_name">{{username}}</span> 
+            <span class="message_meta"> {{createdAt}} </span>
+            <img src="{{src}}" alt="img" download>
+          </div>
     </script>
 
     <script id="msg_temp_file" type="text/html">
+        <div class="msg_temp_file">
         <span class="message_name">{{username}}</span> 
-        <span class="message_meta"> {{createdAt}} </span>
+        <span class="message_meta"> {{createdAt}} </span><br>
         <a href="{{href}}"download="{{downloadName}}">{{fileName}}</a>
-
+        </div>
     </script>
 
 </body>
