@@ -1,3 +1,15 @@
+## Our Project
+The main motto of our platform is to accuring local tuition centres and small coaching classes. This help them to scale and grow their reach to more number of students and also help students to take classes at their home at cheaper rates.
+
+## Our Project Features
+
+1.Online Video Classes.<br>
+2.Assignment and notes sharing under a single app.<br>
+3.Beneficial for students belonging to middle class family.<br>
+4.Doubt section for clearing students doubts.<br>
+5.Easy to understand UI.<br>
+
+
 ## Installation
 To use the project locally make sure you have MongoDB and NodeJS installed .
 
@@ -21,43 +33,4 @@ $ npm run dev
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :
-
-#images
-
-<table>
-  <tr>
-      <td> <h1>screenshot in pc </h1></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/1.png" height = "480" width="970"></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/2.png" height = "480" width="970"></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/3.png" height = "480" width="970"></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/4.png" height = "480" width="970"></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/5.png" height = "480" width="970"></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/6.png" height = "480" width="970"></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/7.png" height = "480" width="970"></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/8.png" height = "480" width="970"></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/8.png" height = "480" width="970"></td>
-  </tr>
-   <tr>
-      <td><img src="public/im/10.png" height = "480" width="970"></td>
-  </tr>
- 
-</table>
 
