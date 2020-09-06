@@ -66,7 +66,10 @@
 
                 </div>
                 <div>
-                  subject 1 : <a href="/room/73b29873-c0bb-48e5-9427-a288646e5ae7" target="_blank">join</a>
+                 <div>
+                  <br>
+                  Doubts:   <a href="/qna/public" >Ask Question</a>
+                 </div>
                 </div>
               </div>
             </div>
@@ -93,32 +96,11 @@
                         <div class="class-sub">
                             <%link.subjects.forEach(data=>{%>
                             <h2><%=data%></h2>
-                            <a href="/room/<%=data%><%=link.coaching%><%=clas%>">JOIN</a>
+                            <a href="/room/<%=data%><%=link.coaching%><%=clas%>">JOIN </a>
                             <%})%>
                             <%})%>
                         </div>
-                                                
-                      <!-- <div class="note-sub">
-                        <h2>Maths</h2>
-                        <div class="note-list">
-                        
-                        </div>
-                            </div> -->
                     </div>
-                    
-                    <!-- <div class="note" id="note">
-                      <h1>Fiitjee</h1>
-                      <div class="note-sub">
-                        <h2>Physics</h2>
-                        
-                      </div>
-                      <div class="note-sub">
-                        <h2>Maths</h2>
-                          <div class="note-list">
-                   
-                          </div>
-                      </div>
-                    </div> -->
                     
                   </div>
                   <div class="add-coaching">
@@ -133,7 +115,6 @@
                     </form>
                   </div>
                 </div>
-                <hr class="my-4">
 
                 <!-- Assignment -->
 
@@ -150,20 +131,20 @@
                   </form>
                                     
                     <% if(typeof err !='undefined'){%>
-                        <h3 color="red"><%=err%></h3>
-                        <%}%>
+                    <h3 color="red"><%=err%></h3>
+                    <%}%>
 
-<% if(typeof err !='undefined'){%>
-<h3 color="red"><%=err%></h3>
-<%}%>
+                    <% if(typeof err !='undefined'){%>
+                    <h3 color="red"><%=err%></h3>
+                    <%}%>
 
-    <% if(typeof success !='undefined'){%>
-<h3 color="green"><%=success%></h3>
-<%}%>
+                    <% if(typeof success !='undefined'){%>
+                    <h3 color="green"><%=success%></h3>
+                    <%}%>
 
-    <% if(typeof error !='undefined'){%>
-<h3 color="red"><%=error%></h3>
-<%}%>
+                    <% if(typeof error !='undefined'){%>
+                    <h3 color="red"><%=error%></h3>
+                    <%}%>
 
                 <!-- Notes -->
                 <h6 class="heading-small text-muted mb-4">Notes</h6>
@@ -176,19 +157,10 @@
                         <h2><%=coach.subject%></h2>
                         <% coach.notes.forEach(note=>{ %>
                           <a href="data:application/pdf;base64,<%=note.file.toString('base64')%>" download="<%=note.fileName%>"><%=note.fileName%></a>
-                        <!-- <a href="data:application/pdf;base64,<%=note.file.toString('base64')%>" download="<%=note.fileName%>">lecture 1</a>
-                        <a href="data:application/pdf;base64,<%=note.file.toString('base64')%>" download="<%=note.fileName%>">lecture 1</a> -->
                         <%})%>
                         <%  }) %>
                       </div>
-                      <!-- <div class="note-sub">
-                        <h2>Maths</h2>
-                          <div class="note-list">
-                          
-                          </div>
-                      </div> -->
                     </div>
-                <hr class="my-4">
               </form>
             </div>
           </div>
